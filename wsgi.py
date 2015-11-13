@@ -5,6 +5,10 @@ import re
 import datetime
 
 import fit
+import Tkinter
+import tkMessageBox
+
+
 
 def application(environ, start_response):
     logpath = "%s/winti.log" % os.getenv("OPENSHIFT_DATA_DIR")
@@ -15,6 +19,14 @@ def application(environ, start_response):
     elif environ['PATH_INFO'] == '/current':
         lines = open(logpath).readlines()
         response_body = lines[-1]
+    elif environ['PATH_INFO'] == '/troll':
+        top = Tkinter.Tk()
+        def helloCallBack():
+        tkMessageBox.showinfo( "Hello Python", "Hello World")
+        B = Tkinter.Button(top, text ="Hello", command = helloCallBack)
+        B.pack()
+        top.mainloop()
+        response_body = "lalalalalla"
     elif environ['PATH_INFO'].startswith('/predict/'):
         s = re.compile("/predict/(\d+)")
         m = s.match(environ['PATH_INFO'])
