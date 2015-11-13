@@ -22,7 +22,7 @@ def application(environ, start_response):
     elif environ['PATH_INFO'] == '/troll':
         top = Tkinter.Tk()
         def helloCallBack():
-        tkMessageBox.showinfo( "Hello Python", "Hello World")
+            tkMessageBox.showinfo( "Hello Python", "Hello World")
         B = Tkinter.Button(top, text ="Hello", command = helloCallBack)
         B.pack()
         top.mainloop()
