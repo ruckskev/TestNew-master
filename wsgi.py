@@ -37,7 +37,7 @@ def application(environ, start_response):
         preddate = datetime.datetime.strftime(datetime.datetime.fromtimestamp(predstamp), "%a, %-d. %B %Y, %-H:%M")
         response_body = "Predicted date when the population of Winterthur reaches %s: %s" % (m.group(1), preddate)
     elif environ['PATH_INFO'] == '/source':
-        response_body = "blah blah blah blah"
+        response_body = "blah blah blah blah bk"
     else:
         response_body = "This is a data source/data service informing about the population of Winterthur. Use /current or /history or /predict/{number-of-inhabitants} as invocation methods. Use /source to get a pointer to the service implementation source code."
     response_body = response_body.encode('utf-8')
